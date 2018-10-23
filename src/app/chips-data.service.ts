@@ -5,6 +5,7 @@ import {Chip} from './chip';
 export class ChipsDataService {
 
   lastId = 0;
+  lastOrder = 0;
 
   chips: Chip[] = [];
 
@@ -14,6 +15,7 @@ export class ChipsDataService {
   addChip(chip: Chip): ChipsDataService {
     if (!chip.id) {
       chip.id = ++this.lastId;
+      chip.order = ++this.lastOrder;
     }
     this.chips.push(chip);
     return this;

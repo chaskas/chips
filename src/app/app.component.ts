@@ -16,8 +16,10 @@ export class AppComponent {
   newChip: Chip = new Chip();
 
   addChip() {
-    this.chipsDataService.addChip(this.newChip);
-    this.newChip = new Chip();
+    if (this.newChip.name !== undefined) {
+      this.chipsDataService.addChip(this.newChip);
+      this.newChip = new Chip();
+    }
   }
 
   removeChip(chip) {
@@ -28,5 +30,8 @@ export class AppComponent {
     return this.chipsDataService.getAllChips();
   }
 
+  onClick(chip: Chip) {
+    console.log(chip);
+  }
 
 }
