@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Chip } from './chip';
-import { ChipsDataService } from './chips-data.service';
+import { Chip } from './shared/chip';
+import { ChipsDataService } from './shared/chips-data.service';
 
 @Component({
   selector: 'app-root',
@@ -22,16 +22,8 @@ export class AppComponent {
     }
   }
 
-  removeChip(chip) {
-    this.chipsDataService.deleteChipById(chip.id);
-  }
-
   get chips() {
     return this.chipsDataService.getAllChips();
-  }
-
-  onClick(chip: Chip) {
-    console.log(chip);
   }
 
 }

@@ -3,15 +3,20 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { ChipsDataService } from './chips-data.service';
+import { ChipsDataService } from './shared/chips-data.service';
+
+import { DragulaModule } from 'ng2-dragula';
+import { ChipableComponent } from './chipable/chipable.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ChipableComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    DragulaModule.forRoot()
   ],
   providers: [ChipsDataService],
   bootstrap: [AppComponent]
